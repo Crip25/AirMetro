@@ -58,7 +58,8 @@ class Config:
     ALLOWED_EXTENSIONS = {
         'data': ['.csv', '.xlsx', '.json', '.h5'],
         'video': ['.mp4', '.avi', '.mov'],
-        'image': ['.jpg', '.png', '.tif']
+        'image': ['.jpg', '.png', '.tif'].\venv\Scripts\Activate
+
     }
 
 class DatabaseManager:
