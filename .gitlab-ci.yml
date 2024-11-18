@@ -1,0 +1,13 @@
+image: python:3.11
+
+stages:
+  - deploy
+
+deploy_production:
+  stage: deploy
+  script:
+    - npm install -g vercel
+    - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+    - vercel deploy --prod --token=$VERCEL_TOKEN
+  only:
+    - main
