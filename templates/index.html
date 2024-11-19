@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,83 +9,59 @@
     <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <i class="fas fa-database text-blue-600 text-2xl mr-2"></i>
-                    <span class="font-bold text-xl text-gray-800">Research Data Portal</span>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container mx-auto p-6 max-w-3xl">
-        <div class="bg-white rounded-xl shadow-xl p-6 space-y-8">
-            <!-- Progress Steps -->
-            <div class="flex justify-between mb-8">
-                <div class="flex flex-col items-center">
-                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white">
-                        <i class="fas fa-file-upload"></i>
-                    </div>
-                    <span class="text-sm mt-2">Upload File</span>
-                </div>
-                <div class="flex-1 flex items-center">
-                    <div class="h-1 w-full bg-blue-200"></div>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white">
-                        <i class="fas fa-info"></i>
-                    </div>
-                    <span class="text-sm mt-2">Add Metadata</span>
-                </div>
-                <div class="flex-1 flex items-center">
-                    <div class="h-1 w-full bg-gray-200"></div>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <span class="text-sm mt-2">Complete</span>
-                </div>
-            </div>
+    <main class="container mx-auto p-6 max-w-3xl">
+        <div class="bg-white rounded-xl shadow-xl p-6">
+            <h1 class="text-2xl font-bold mb-6 flex items-center">
+                <i class="fas fa-database text-blue-600 mr-2" aria-hidden="true"></i>
+                Research Data Portal
+            </h1>
             
             <!-- File Upload Zone -->
-            <div id="dropZone" class="border-3 border-dashed border-blue-300 rounded-xl p-8 text-center cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-50">
+            <div id="dropZone" class="border-3 border-dashed border-blue-300 rounded-xl p-8 text-center cursor-pointer hover:border-blue-500 hover:bg-blue-50" role="button" tabindex="0" aria-label="Drop zone for file upload">
                 <div class="flex flex-col items-center space-y-4">
-                    <i class="fas fa-cloud-upload-alt text-5xl text-blue-500"></i>
+                    <i class="fas fa-cloud-upload-alt text-5xl text-blue-500" aria-hidden="true"></i>
                     <div>
                         <p class="text-lg text-gray-700">Drag & drop your file here</p>
                         <p class="text-sm text-gray-500">or click to browse</p>
                     </div>
                     <div id="fileInfo" class="hidden">
                         <div class="flex items-center space-x-2 text-gray-700">
-                            <i class="fas fa-file-alt"></i>
+                            <i class="fas fa-file-alt" aria-hidden="true"></i>
                             <span id="fileName"></span>
-                            <button id="removeFile" class="text-red-500 hover:text-red-700">
-                                <i class="fas fa-times"></i>
+                            <button id="removeFile" class="text-red-500 hover:text-red-700" aria-label="Remove selected file">
+                                <i class="fas fa-times" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-                <input type="file" id="fileInput" class="hidden">
+                <input type="file" id="fileInput" class="hidden" aria-label="File upload input">
             </div>
 
             <!-- Metadata Form -->
-            <form id="uploadForm" class="space-y-6">
+            <form id="uploadForm" class="mt-8 space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            <i class="fas fa-heading mr-2"></i>Title
+                        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-heading mr-2" aria-hidden="true"></i>Title
                         </label>
-                        <input type="text" id="title" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            name="title"
+                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500" 
+                            required 
+                            aria-required="true">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            <i class="fas fa-folder mr-2"></i>Dataset Type
+                        <label for="datasetType" class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-folder mr-2" aria-hidden="true"></i>Dataset Type
                         </label>
-                        <select id="datasetType" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <select 
+                            id="datasetType" 
+                            name="datasetType"
+                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500"
+                            aria-required="true">
                             <option value="flight_data">✈️ Flight Data</option>
                             <option value="simulation">🔄 Simulation</option>
                             <option value="sensor_data">📊 Sensor Data</option>
@@ -97,65 +72,79 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        <i class="fas fa-align-left mr-2"></i>Description
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-1">
+                        <i class="fas fa-align-left mr-2" aria-hidden="true"></i>Description
                     </label>
-                    <textarea id="description" rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    <textarea 
+                        id="description" 
+                        name="description"
+                        rows="3" 
+                        class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500"
+                        aria-label="Dataset description"></textarea>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        <i class="fas fa-share-alt mr-2"></i>Share Level
-                    </label>
+                <fieldset>
+                    <legend class="block text-sm font-medium text-gray-700 mb-1">
+                        <i class="fas fa-share-alt mr-2" aria-hidden="true"></i>Share Level
+                    </legend>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                            <input type="radio" name="shareLevel" value="private" class="mr-2">
-                            <i class="fas fa-lock mr-2 text-gray-600"></i>
-                            <span>Private</span>
+                            <input type="radio" name="shareLevel" value="private" checked class="mr-2">
+                            <i class="fas fa-lock mr-2" aria-hidden="true"></i>Private
                         </label>
                         <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
                             <input type="radio" name="shareLevel" value="team" class="mr-2">
-                            <i class="fas fa-users mr-2 text-gray-600"></i>
-                            <span>Team</span>
+                            <i class="fas fa-users mr-2" aria-hidden="true"></i>Team
                         </label>
                         <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
                             <input type="radio" name="shareLevel" value="group" class="mr-2">
-                            <i class="fas fa-user-friends mr-2 text-gray-600"></i>
-                            <span>Group</span>
+                            <i class="fas fa-user-friends mr-2" aria-hidden="true"></i>Group
                         </label>
                         <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
                             <input type="radio" name="shareLevel" value="public" class="mr-2">
-                            <i class="fas fa-globe mr-2 text-gray-600"></i>
-                            <span>Public</span>
+                            <i class="fas fa-globe mr-2" aria-hidden="true"></i>Public
                         </label>
                     </div>
-                </div>
+                </fieldset>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        <i class="fas fa-tags mr-2"></i>Tags
+                    <label for="tagInput" class="block text-sm font-medium text-gray-700 mb-1">
+                        <i class="fas fa-tags mr-2" aria-hidden="true"></i>Tags
                     </label>
                     <div class="flex gap-2">
-                        <div class="flex-1">
-                            <input type="text" id="tagInput" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Add tags...">
-                        </div>
-                        <button type="button" id="addTag" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center">
-                            <i class="fas fa-plus mr-2"></i>
-                            Add
+                        <input 
+                            type="text" 
+                            id="tagInput" 
+                            name="tagInput"
+                            class="flex-1 px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500" 
+                            placeholder="Add tags..."
+                            aria-label="Enter tag">
+                        <button 
+                            type="button" 
+                            id="addTag" 
+                            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                            aria-label="Add tag">
+                            <i class="fas fa-plus mr-2" aria-hidden="true"></i>Add
                         </button>
                     </div>
-                    <div id="tagContainer" class="flex flex-wrap gap-2 mt-3"></div>
+                    <div id="tagContainer" class="flex flex-wrap gap-2 mt-3" aria-live="polite"></div>
                 </div>
 
-                <div id="uploadStatus" class="hidden rounded-lg p-4"></div>
+                <div 
+                    id="uploadStatus" 
+                    class="hidden rounded-lg p-4" 
+                    role="status" 
+                    aria-live="polite"></div>
 
-                <button type="submit" class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center space-x-2">
-                    <i class="fas fa-upload"></i>
-                    <span>Upload Dataset</span>
+                <button 
+                    type="submit" 
+                    class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center justify-center"
+                    aria-label="Upload dataset">
+                    <i class="fas fa-upload mr-2" aria-hidden="true"></i>Upload Dataset
                 </button>
             </form>
         </div>
-    </div>
+    </main>
     <script src="{{ url_for('static', path='/script.js') }}"></script>
 </body>
 </html>
