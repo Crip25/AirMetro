@@ -1,9 +1,11 @@
 fastapi
-python-multipart
 neo4j
 PyJWT==2.8.0
 python-jose[cryptography]
 uvicorn
 python-dotenv
 cryptography
+jinja2==3.0.1
+aiofiles==0.7.0
+python-multipart==0.0.5
 
