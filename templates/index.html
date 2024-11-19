@@ -61,12 +61,57 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <!-- New Header Section -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <!-- Logo SVG -->
+                    <svg class="w-12 h-12" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="400" cy="400" r="390" stroke="url(#gradient)" stroke-width="20"/>
+                        <path d="M400 100 C250 300 550 300 400 700" stroke="url(#gradient)" stroke-width="20"/>
+                        <!-- City silhouette -->
+                        <path d="M200 500h400v200H200z" fill="black"/>
+                        <!-- Aircraft and helicopter symbols -->
+                        <g transform="translate(300,200) scale(0.5)">
+                            <path d="M0 0l20 10-20 10z" fill="black"/>
+                            <circle cx="10" cy="10" r="5" fill="black"/>
+                        </g>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4F46E5"/>
+                                <stop offset="100%" style="stop-color:#EC4899"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Research Training Group</h1>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                Data Portal Manager: Ahlem
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Management Badge -->
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg shadow-md">
+                        <div class="text-sm font-medium">Research Data Management</div>
+                        <div class="text-xs opacity-75">Authorized Access</div>
+                    </div>
+                    <button id="browseData" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
+                        Browse Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
     <main class="container mx-auto p-6 max-w-3xl">
         <div class="bg-white rounded-xl shadow-xl p-6">
-            <h1 class="text-2xl font-bold mb-6 flex items-center">
-                <i class="fas fa-database text-blue-600 mr-2" aria-hidden="true"></i>
-                AirMetro Research Training Group 2947 
-            </h1>
             
             <!-- File Upload Zone -->
             <div id="dropZone" class="border-3 border-dashed border-blue-300 rounded-xl p-8 text-center cursor-pointer hover:border-blue-500 hover:bg-blue-50" role="button" tabindex="0" aria-label="Drop zone for file upload">
