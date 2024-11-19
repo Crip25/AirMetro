@@ -1,11 +1,8 @@
-python-jose
-neo4j
-aiofiles
-python-dotenv
-PyJWT
 fastapi
 python-multipart
-PyJWT
+neo4j
+PyJWT==2.8.0
+python-jose[cryptography]
 uvicorn
 python-dotenv
 cryptography
