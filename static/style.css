@@ -1,0 +1,74 @@
+/* static/style.css */
+.border-dashed {
+    border-style: dashed;
+}
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    transition: all 0.2s;
+}
+
+.tag-item:hover {
+    background-color: #DBEAFE;
+}
+
+.tag-item button {
+    margin-left: 0.5rem;
+    color: #1D4ED8;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.tag-item button:hover {
+    opacity: 1;
+}
+
+.progress-step {
+    position: relative;
+}
+
+.progress-step::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: #E5E7EB;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.progress-step.active::after {
+    background-color: #3B82F6;
+}
+
+/* Animation for drag and drop */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.drag-active {
+    animation: pulse 1s infinite;
+    border-color: #3B82F6;
+    background-color: #EFF6FF;
+}
+
+/* File upload success animation */
+@keyframes checkmark {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.upload-success {
+    animation: checkmark 0.5s ease-in-out;
+}
