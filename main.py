@@ -5,7 +5,7 @@ from fastapi.responses import Response, JSONResponse
 from typing import List, Optional, Dict
 from pydantic import BaseModel
 from datetime import datetime
-import jwt
+from jose import jwt
 from neo4j import AsyncGraphDatabase
 import logging
 import os
