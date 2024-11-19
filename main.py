@@ -11,6 +11,10 @@ import logging
 import os
 from enum import Enum
 import base64
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
+from fastapi.requests import Request
 
 class ShareLevel(str, Enum):
     PRIVATE = "private"
@@ -168,6 +172,12 @@ class DataManager:
             raise HTTPException(status_code=500, detail=f"Failed to retrieve file: {str(e)}")
 
 app = FastAPI(title="AAM Research Data Portal")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
