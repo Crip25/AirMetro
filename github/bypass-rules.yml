@@ -1,0 +1,28 @@
+# .github/bypass-rules.yml
+
+protection_rules:
+  main:
+    bypass_permissions:
+      # Roles that can bypass
+      roles:
+        - organization_admin
+        - repository_admin
+      
+      # Teams that can bypass
+      teams:
+        - aam-admins
+      
+      # Individual users
+      users:
+        - Ahlem  # Data Portal Manager
+      
+      # Apps that need bypass access
+      apps:
+        - "Vercel"  # For deployment
+
+  deployment:
+    allowed_deployment_apps:
+      - "Vercel"
+    deployment_environments:
+      - "production"
+      - "staging"
