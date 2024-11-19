@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)" stroke-width="5"/>
+  <!-- Small plane silhouette -->
+  <path d="M30 50 L70 50 L60 40 L70 50 L60 60" stroke="#4F46E5" stroke-width="3" fill="none"/>
+  <!-- Drone silhouette -->
+  <path d="M45 45 L55 45 L50 40 L45 45 M45 55 L55 55 L50 60 L45 55" stroke="#EC4899" stroke-width="2" fill="none"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5"/>
+      <stop offset="100%" style="stop-color:#EC4899"/>
+    </linearGradient>
+  </defs>
+</svg>
