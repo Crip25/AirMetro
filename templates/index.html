@@ -60,9 +60,72 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
-    <main class="container mx-auto p-6 max-w-3xl">
-        <div class="bg-white rounded-xl shadow-xl p-6">
+<body>
+    <!-- Sky Background with Animated Drones -->
+    <div class="sky-background">
+        <!-- Animated Clouds -->
+        <div class="clouds" style="position: absolute; width: 100%; height: 100%; overflow: hidden;">
+            <svg class="cloud" style="top: 15%" width="100" height="40" viewBox="0 0 100 40">
+                <path fill="rgba(255,255,255,0.8)" d="M10 30 Q25 10 40 30 T70 30 T100 30 V40 H10 Z"/>
+            </svg>
+            <svg class="cloud" style="top: 45%; animation-delay: -10s" width="120" height="48">
+                <path fill="rgba(255,255,255,0.6)" d="M12 36 Q30 12 48 36 T84 36 T120 36 V48 H12 Z"/>
+            </svg>
+            <svg class="cloud" style="top: 25%; animation-delay: -20s" width="80" height="32">
+                <path fill="rgba(255,255,255,0.7)" d="M8 24 Q20 8 32 24 T56 24 T80 24 V32 H8 Z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header with Enlarged Logo -->
+    <header class="relative bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6">
+                    <!-- Your existing logo, but larger -->
+                    <img src="{{ url_for('static', path='/your-logo.svg') }}" alt="AAM Logo" class="w-40 h-40">
+                    
+                    <div>
+                        <h1 class="text-4xl font-bold text-gray-800">Research Training Group</h1>
+                        <div class="flex items-center text-sm mt-2">
+                            <span class="bg-white bg-opacity-70 backdrop-blur text-blue-800 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
+                                Data Portal Manager: Ahlem
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Management Badge -->
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white bg-opacity-70 backdrop-blur px-4 py-2 rounded-lg shadow-lg">
+                        <div class="text-blue-800 font-medium">Research Data Management</div>
+                        <div class="text-blue-600 text-sm">Authorized Access</div>
+                    </div>
+                    <button id="browseData" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-300 shadow-lg">
+                        Browse Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 max-w-3xl relative">
+        <!-- Animated Drones -->
+        <div class="fixed inset-0 pointer-events-none z-0">
+            <svg class="drone absolute" style="top: 20%; left: 10%; animation-delay: -2s" width="40" height="20">
+                <path d="M20 0L40 20H0L20 0Z" fill="rgba(0,0,0,0.6)"/>
+            </svg>
+            <svg class="drone absolute" style="top: 40%; left: 30%; animation-delay: -4s" width="40" height="20">
+                <path d="M20 0L40 20H0L20 0Z" fill="rgba(0,0,0,0.6)"/>
+            </svg>
+            <svg class="drone absolute" style="top: 30%; left: 60%; animation-delay: -6s" width="40" height="20">
+                <path d="M20 0L40 20H0L20 0Z" fill="rgba(0,0,0,0.6)"/>
+            </svg>
+        </div>
+
+        <div class="bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-xl p-6 relative z-10">
+            <!-- Your existing form content starts here -->
             <h1 class="text-2xl font-bold mb-6 flex items-center">
                 <i class="fas fa-database text-blue-600 mr-2" aria-hidden="true"></i>
                 AirMetro Research Training Group 2947 
