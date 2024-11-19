@@ -72,3 +72,27 @@
 .upload-success {
     animation: checkmark 0.5s ease-in-out;
 }
+/* Add to your existing style.css */
+.backdrop-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.drone {
+    transition: all 0.3s ease;
+}
+
+.drone:hover {
+    transform: scale(1.1);
+}
+
+/* Ensure form elements are readable against the background */
+input, select, textarea {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Enhanced hover effects */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
