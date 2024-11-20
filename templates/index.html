@@ -3,171 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Training Group 2947 - Research Data Portal</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', path='/favicon.svg') }}">
-    
-    <!-- Tailwind CSS -->
+    <title>Research Data Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #87CEEB 0%, #1E90FF 100%);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Sky Background */
-        .sky-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(to bottom, #87CEEB 0%, #1E90FF 100%);
-        }
-
-        /* Cloud Animation */
-        .cloud {
-            position: absolute;
-            animation: moveCloud 30s linear infinite;
-        }
-
-        @keyframes moveCloud {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(100vw); }
-        }
-
-        /* Drone Animation */
-        .drone {
-            position: absolute;
-            animation: flyDrone 15s linear infinite;
-        }
-
-        .drone-propeller {
-            animation: rotatePropeller 0.5s linear infinite;
-        }
-
-        @keyframes flyDrone {
-            0% {
-                transform: translate(-100px, 0) rotate(5deg);
-            }
-            50% {
-                transform: translate(calc(100vw + 100px), 50px) rotate(-5deg);
-            }
-            100% {
-                transform: translate(-100px, 0) rotate(5deg);
-            }
-        }
-
-        @keyframes rotatePropeller {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Text shadow for better visibility */
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-    </style>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
 </head>
-<body>
-    <!-- Sky Background with Animated Elements -->
-    <div class="sky-background">
-        <!-- Animated Drones -->
-        <svg class="drone" style="top: 15%" width="100" height="60" viewBox="0 0 100 60">
-            <g fill="#333">
-                <!-- Drone body -->
-                <path d="M40 30h20v10h-20z"/>
-                <!-- Arms -->
-                <rect x="10" y="35" width="30" height="5"/>
-                <rect x="60" y="35" width="30" height="5"/>
-                <!-- Propellers -->
-                <circle class="drone-propeller" cx="10" cy="37.5" r="8"/>
-                <circle class="drone-propeller" cx="90" cy="37.5" r="8"/>
-            </g>
-        </svg>
-        <svg class="drone" style="top: 35%; animation-delay: -5s" width="100" height="60" viewBox="0 0 100 60">
-            <g fill="#444">
-                <path d="M40 30h20v10h-20z"/>
-                <rect x="10" y="35" width="30" height="5"/>
-                <rect x="60" y="35" width="30" height="5"/>
-                <circle class="drone-propeller" cx="10" cy="37.5" r="8"/>
-                <circle class="drone-propeller" cx="90" cy="37.5" r="8"/>
-            </g>
-        </svg>
-        <svg class="drone" style="top: 55%; animation-delay: -10s" width="100" height="60" viewBox="0 0 100 60">
-            <g fill="#555">
-                <path d="M40 30h20v10h-20z"/>
-                <rect x="10" y="35" width="30" height="5"/>
-                <rect x="60" y="35" width="30" height="5"/>
-                <circle class="drone-propeller" cx="10" cy="37.5" r="8"/>
-                <circle class="drone-propeller" cx="90" cy="37.5" r="8"/>
-            </g>
-        </svg>
-        
-        <!-- Animated Clouds -->
-        <svg class="cloud" style="top: 10%" width="100" height="40" viewBox="0 0 100 40">
-            <path fill="rgba(255,255,255,0.8)" d="M10 30 Q25 10 40 30 T70 30 T100 30 V40 H10 Z"/>
-        </svg>
-        <svg class="cloud" style="top: 30%; animation-delay: -10s" width="120" height="48">
-            <path fill="rgba(255,255,255,0.6)" d="M12 36 Q30 12 48 36 T84 36 T120 36 V48 H12 Z"/>
-        </svg>
-        <svg class="cloud" style="top: 50%; animation-delay: -20s" width="80" height="32">
-            <path fill="rgba(255,255,255,0.7)" d="M8 24 Q20 8 32 24 T56 24 T80 24 V32 H8 Z"/>
-        </svg>
-    </div>
-
-    <!-- Header without Logo -->
-    <header class="relative bg-transparent">
-        <div class="max-w-7xl mx-auto px-4 py-6">
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <!-- New Header Section -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <div class="flex flex-col">
-                    <h1 class="text-5xl font-bold text-white text-shadow mb-2">Research Training Group</h1>
-                    <h2 class="text-3xl font-semibold text-white text-shadow mb-4">2947</h2>
-                    <div class="flex items-center text-sm">
-                        <span class="bg-white bg-opacity-70 backdrop-blur text-blue-800 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
-                            Data Portal Manager: Ahlem
-                        </span>
+                <div class="flex items-center space-x-4">
+                    <!-- Logo SVG -->
+                    <svg class="w-12 h-12" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="400" cy="400" r="390" stroke="url(#gradient)" stroke-width="20"/>
+                        <path d="M400 100 C250 300 550 300 400 700" stroke="url(#gradient)" stroke-width="20"/>
+                        <!-- City silhouette -->
+                        <path d="M200 500h400v200H200z" fill="black"/>
+                        <!-- Aircraft and helicopter symbols -->
+                        <g transform="translate(300,200) scale(0.5)">
+                            <path d="M0 0l20 10-20 10z" fill="black"/>
+                            <circle cx="10" cy="10" r="5" fill="black"/>
+                        </g>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4F46E5"/>
+                                <stop offset="100%" style="stop-color:#EC4899"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">AirMetro Research Training Group 2947</h1>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                Data Portal Manager: Ahlem
+                            </span>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Management Badge -->
                 <div class="flex items-center space-x-4">
-                    <div class="bg-white bg-opacity-70 backdrop-blur px-4 py-2 rounded-lg shadow-lg">
-                        <div class="text-blue-800 font-medium">Research Data Management</div>
-                        <div class="text-blue-600 text-sm">Authorized Access</div>
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg shadow-md">
+                        <div class="text-sm font-medium">Research Data Management</div>
+                        <div class="text-xs opacity-75">Authorized Access </div>
                     </div>
-                    <button id="browseData" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-300 shadow-lg">
+                    <button id="browseData" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
                         Browse Data
                     </button>
                 </div>
@@ -175,11 +57,139 @@
         </div>
     </header>
 
-    <!-- Rest of your existing content remains the same -->
-    <main class="container mx-auto p-6 max-w-3xl relative">
-        <!-- Your existing form content -->
+    <!-- Main Content Container -->
+    <main class="container mx-auto p-6 max-w-3xl">
+        <div class="bg-white rounded-xl shadow-xl p-6">
+            
+            <!-- File Upload Zone -->
+            <div id="dropZone" class="border-3 border-dashed border-blue-300 rounded-xl p-8 text-center cursor-pointer hover:border-blue-500 hover:bg-blue-50" role="button" tabindex="0" aria-label="Drop zone for file upload">
+                <div class="flex flex-col items-center space-y-4">
+                    <i class="fas fa-cloud-upload-alt text-5xl text-blue-500" aria-hidden="true"></i>
+                    <div>
+                        <p class="text-lg text-gray-700">Drag & drop your file here</p>
+                        <p class="text-sm text-gray-500">or click to browse</p>
+                    </div>
+                    <div id="fileInfo" class="hidden">
+                        <div class="flex items-center space-x-2 text-gray-700">
+                            <i class="fas fa-file-alt" aria-hidden="true"></i>
+                            <span id="fileName"></span>
+                            <button id="removeFile" class="text-red-500 hover:text-red-700" aria-label="Remove selected file">
+                                <i class="fas fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <input type="file" id="fileInput" class="hidden" aria-label="File upload input">
+            </div>
+
+            <!-- Metadata Form -->
+            <form id="uploadForm" class="mt-8 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-heading mr-2" aria-hidden="true"></i>Title
+                        </label>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            name="title"
+                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500" 
+                            required 
+                            aria-required="true">
+                    </div>
+
+                    <div>
+                        <label for="datasetType" class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-folder mr-2" aria-hidden="true"></i>Dataset Type
+                        </label>
+                        <select 
+                            id="datasetType" 
+                            name="datasetType"
+                            class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500"
+                            aria-required="true">
+                            <option value="flight_data">✈️ Flight Data</option>
+                            <option value="simulation">🔄 Simulation</option>
+                            <option value="sensor_data">📊 Sensor Data</option>
+                            <option value="analysis">📈 Analysis</option>
+                            <option value="visualization">🎨 Visualization</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-1">
+                        <i class="fas fa-align-left mr-2" aria-hidden="true"></i>Description
+                    </label>
+                    <textarea 
+                        id="description" 
+                        name="description"
+                        rows="3" 
+                        class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500"
+                        aria-label="Dataset description"></textarea>
+                </div>
+
+                <fieldset>
+                    <legend class="block text-sm font-medium text-gray-700 mb-1">
+                        <i class="fas fa-share-alt mr-2" aria-hidden="true"></i>Share Level
+                    </legend>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="shareLevel" value="private" checked class="mr-2">
+                            <i class="fas fa-lock mr-2" aria-hidden="true"></i>Private
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="shareLevel" value="team" class="mr-2">
+                            <i class="fas fa-users mr-2" aria-hidden="true"></i>Team
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="shareLevel" value="group" class="mr-2">
+                            <i class="fas fa-user-friends mr-2" aria-hidden="true"></i>Group
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="shareLevel" value="public" class="mr-2">
+                            <i class="fas fa-globe mr-2" aria-hidden="true"></i>Public
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div>
+                    <label for="tagInput" class="block text-sm font-medium text-gray-700 mb-1">
+                        <i class="fas fa-tags mr-2" aria-hidden="true"></i>Tags
+                    </label>
+                    <div class="flex gap-2">
+                        <input 
+                            type="text" 
+                            id="tagInput" 
+                            name="tagInput"
+                            class="flex-1 px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500" 
+                            placeholder="Add tags..."
+                            aria-label="Enter tag">
+                        <button 
+                            type="button" 
+                            id="addTag" 
+                            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                            aria-label="Add tag">
+                            <i class="fas fa-plus mr-2" aria-hidden="true"></i>Add
+                        </button>
+                    </div>
+                    <div id="tagContainer" class="flex flex-wrap gap-2 mt-3" aria-live="polite"></div>
+                </div>
+
+                <div 
+                    id="uploadStatus" 
+                    class="hidden rounded-lg p-4" 
+                    role="status" 
+                    aria-live="polite"></div>
+
+                <button 
+                    type="submit" 
+                    class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center justify-center"
+                    aria-label="Upload dataset">
+                    <i class="fas fa-upload mr-2" aria-hidden="true"></i>Upload Dataset
+                </button>
+            </form>
+        </div>
     </main>
-    
     <script src="{{ url_for('static', path='/script.js') }}"></script>
 </body>
 </html>
