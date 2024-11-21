@@ -20,14 +20,15 @@ class ShareLevel(str, Enum):
     PRIVATE = "private"
     TEAM = "team"
     GROUP = "group"
-    PUBLIC = "public"
+   
 
 class DatasetType(str, Enum):
     FLIGHT_DATA = "flight_data"
-    SIMULATION = "simulation"
+    SIMULATION = "simulation data"
     SENSOR_DATA = "sensor_data"
-    ANALYSIS = "analysis"
-    VISUALIZATION = "visualization"
+    ANALYSIS = "analysis data"
+    VISUALIZATION = "visualization data"
+    VISUALIZATION = "test data"
 
 class DatasetMetadata(BaseModel):
     title: str
@@ -54,7 +55,7 @@ class Config:
     
     NEO4J_URI_FILES = os.getenv('NEO4J_URI_FILES', 'neo4j+s://4d450adb.databases.neo4j.io]')
     NEO4J_USER_FILES = os.getenv('NEO4J_USER_FILES', 'neo4j')
-    NEO4J_PASSWORD_FILES = os.getenv('NEO4J_PASSWORD_FILES', '[lphtTzkwtbJ8dVPN7KDn8DrTXJe80tsb-bTIOr3YHtI')
+    NEO4J_PASSWORD_FILES = os.getenv('NEO4J_PASSWORD_FILES', '[lphtTzkwtbJ8dVPN7KDn8DrTXJe80tsb-bTIOr3YHtI]')
     
     NEO4J_URI_META = os.getenv('NEO4J_URI_META', 'neo4j+s://dc10cabb.databases.neo4j.io')
     NEO4J_USER_META = os.getenv('NEO4J_USER_META', 'neo4j')
