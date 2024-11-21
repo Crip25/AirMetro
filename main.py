@@ -20,6 +20,7 @@ class ShareLevel(str, Enum):
     PRIVATE = "private"
     TEAM = "team"
     GROUP = "group"
+    GROUP = "public"
    
 
 class DatasetType(str, Enum):
