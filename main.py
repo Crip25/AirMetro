@@ -28,7 +28,7 @@ class DatasetType(str, Enum):
     SENSOR_DATA = "sensor_data"
     ANALYSIS = "analysis data"
     VISUALIZATION = "visualization data"
-    VISUALIZATION = "test data"
+    test= "test data"
 
 class DatasetMetadata(BaseModel):
     title: str
