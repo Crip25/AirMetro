@@ -55,12 +55,12 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', '[secrt k:d9a39c2a641482135a6242d14f2bb6a888db4f2931054ffad0783e6d018d2eba]')
     
     NEO4J_URI_FILES = os.getenv('NEO4J_URI_FILES', 'neo4j+s://4d450adb.databases.neo4j.io]')
-    NEO4J_USER_FILES = os.getenv('NEO4J_USER_FILES', 'neo4j')
-    NEO4J_PASSWORD_FILES = os.getenv('NEO4J_PASSWORD_FILES', '[lphtTzkwtbJ8dVPN7KDn8DrTXJe80tsb-bTIOr3YHtI]')
+    NEO4J_USER_FILES = os.getenv('NEO4J_USER_FILES', ' ')
+    NEO4J_PASSWORD_FILES = os.getenv('NEO4J_PASSWORD_FILES', '[ ]')
     
     NEO4J_URI_META = os.getenv('NEO4J_URI_META', 'neo4j+s://dc10cabb.databases.neo4j.io')
-    NEO4J_USER_META = os.getenv('NEO4J_USER_META', 'neo4j')
-    NEO4J_PASSWORD_META = os.getenv('NEO4J_PASSWORD_META', '[kgnK-nfUCe3hlkyqHUwQZOSLoRQjXxo_klhT2eXK9LA]')
+    NEO4J_USER_META = os.getenv('NEO4J_USER_META', ' ')
+    NEO4J_PASSWORD_META = os.getenv('NEO4J_PASSWORD_META', '[ ]')
 
 class DatabaseManager:
     def __init__(self):
